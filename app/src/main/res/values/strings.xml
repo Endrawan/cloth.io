@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Cloth-io</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultrices cursus ligula sit amet efficitur. Curabitur vel finibus magna. Vestibulum euismod augue quis molestie congue. Praesent pulvinar eros sed interdum vestibulum. Vestibulum sit amet mattis libero. Pellentesque quis arcu a nulla elementum bibendum. Etiam vestibulum orci nunc, sed tempus justo cursus quis.</string>
+</resources>

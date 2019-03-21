@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OptionView">
+        <attr name="optionTitle" format="string" localization="suggested"/>
+        <attr name="optionSubtitle" format="string"/>
+        <attr name="optionIcon" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="PreviewView">
+        <attr name="previewTitle" format="string" localization="suggested" />
+        <attr name="previewActionName" format="string"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:fitsSystemWindows="true"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="@color/white">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:toolbarId="@+id/toolbar"
+                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                app:contentScrim="@color/white">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/image"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="16dp"
+                        android:src="@drawable/avatar"/>
+
+                <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Elliot Alderson"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/open_sans_semi_bold"/>
+
+                <TextView
+                        android:id="@+id/location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New York City"
+                        android:drawableLeft="@drawable/ic_location_outline_grey_24dp"
+                        android:drawablePadding="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="@color/grey"
+                        android:drawableStart="@drawable/ic_location_outline_grey_24dp"/>
+
+                <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E7E7E7"
+                        android:layout_marginTop="16dp"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp">
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:id="@+id/trades"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="425"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/trades"
+                                android:text="Trades"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:id="@+id/rating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4.5"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/trades"
+                                android:text="Rating"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:id="@+id/response"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="20m"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/trades"
+                                android:text="Response"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_width="match_parent"
+                    app:layout_scrollFlags="scroll|enterAlways">
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+            android:clipToPadding="false"
+            android:paddingTop="16dp"
+            android:paddingBottom="56dp">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <com.example.cloth_io.views.OptionView
+                    android:id="@+id/menuTrade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:optionTitle="My Trades"
+                    app:optionSubtitle="Check your trading history"
+                    app:optionIcon="@drawable/ic_trades_outline_black_24dp"
+                    android:background="@color/white"
+                    android:layout_marginBottom="1dp"/>
+
+            <com.example.cloth_io.views.OptionView
+                    android:id="@+id/menuCart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:optionTitle="Cart"
+                    app:optionSubtitle="Your Cart"
+                    app:optionIcon="@drawable/ic_cart_outline_white_24dp"
+                    android:background="@color/white"
+                    android:layout_marginBottom="1dp"/>
+
+            <com.example.cloth_io.views.OptionView
+                    android:id="@+id/menuProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:optionTitle="My Profile"
+                    app:optionSubtitle="Change your profile details"
+                    app:optionIcon="@drawable/ic_profile_outline_black_24dp"
+                    android:background="@color/white"
+                    android:layout_marginBottom="1dp"/>
+
+            <com.example.cloth_io.views.OptionView
+                    android:id="@+id/menuSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:optionTitle="Settings"
+                    app:optionSubtitle="Change your settings"
+                    app:optionIcon="@drawable/ic_settings_outline_black_24dp"
+                    android:background="@color/white"
+                    android:layout_marginBottom="1dp"/>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
