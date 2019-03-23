@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guidelineStart"/>
+
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guidelineEnd"
+            app:layout_constraintGuide_end="0dp"/>
+
+    <LinearLayout
+            android:id="@+id/product"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineStart"
+            app:layout_constraintRight_toRightOf="@id/guidelineEnd"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/blue"
+            android:padding="8dp">
+
+        <ImageView
+                android:id="@+id/productImg"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@drawable/product2"
+                android:scaleType="centerCrop"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+
+            <TextView
+                    android:id="@+id/productName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Richard Mille"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans_semi_bold"
+                    android:textSize="16sp"/>
+
+            <TextView
+                    android:id="@+id/productOrders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="50 Buah"
+                    android:textColor="@color/white"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+            android:id="@+id/reviewer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/product"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineStart"
+            app:layout_constraintRight_toRightOf="@id/guidelineEnd"
+            android:layout_marginTop="16dp">
+
+        <RatingBar
+                android:id="@+id/rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"/>
+
+        <TextView
+                android:id="@+id/reviewerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gazzy Garcia"
+                android:layout_toLeftOf="@id/rating"
+                android:layout_toStartOf="@id/rating"
+                android:textSize="16sp"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:textColor="@color/black"/>
+
+        <TextView
+                android:id="@+id/reviewerDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 Hari yang lalu"
+                android:layout_toLeftOf="@id/rating"
+                android:layout_toStartOf="@id/rating"
+                android:layout_below="@id/reviewerName"/>
+    </RelativeLayout>
+
+    <TextView
+            android:id="@+id/reviewBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/reviewer"
+            android:text="@string/lorem_ipsum"
+            android:layout_marginTop="16dp"
+            android:textSize="12sp"/>
+
+    <TextView
+            android:text="33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/like"
+            android:drawableLeft="@drawable/ic_like_filled_grey_16dp"
+            android:drawableStart="@drawable/ic_like_filled_grey_16dp"
+            android:drawablePadding="8dp"
+            app:layout_constraintRight_toRightOf="@id/guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/reviewBody"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

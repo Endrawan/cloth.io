@@ -1,12 +1,15 @@
 package com.example.cloth_io.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.*
+import android.widget.Toast
 
 import com.example.cloth_io.R
 import com.example.cloth_io.activities.MainActivity
+import com.example.cloth_io.activities.SellerActivity
 import com.example.cloth_io.adapters.ProductsAdapter
 import com.example.cloth_io.others.GridSpacingItemDecoration
 import components.AppCompatActivity
@@ -45,7 +48,10 @@ class HomeFragment : Fragment() {
         mActivity.supportActionBar?.title = "Los Intocables"
         mActivity.supportActionBar?.elevation = 0f
 
-        val adapter = ProductsAdapter(arrayOf("Louis Vuitton", "Gucci", "Fendi", "Versace"))
+        val adapter = ProductsAdapter(arrayOf("Louis Vuitton", "Gucci", "Fendi", "Versace")) {
+            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+            startActivity(Intent(context, SellerActivity::class.java))
+        }
         val linearLayout = GridLayoutManager(context, 2)
         val decoration = GridSpacingItemDecoration(
             2,
