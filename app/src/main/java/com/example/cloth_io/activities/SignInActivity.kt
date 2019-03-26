@@ -9,5 +9,7 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_sign_in)
+
+//        Glide.with(this).load(R.drawable.auth_background).into(background)
     }
 }

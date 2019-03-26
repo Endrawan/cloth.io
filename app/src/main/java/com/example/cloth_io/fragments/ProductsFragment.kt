@@ -8,10 +8,8 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-
 import com.example.cloth_io.R
-import com.example.cloth_io.activities.SellerActivity
+import com.example.cloth_io.activities.ProductActivity
 import com.example.cloth_io.adapters.ProductsAdapter
 import com.example.cloth_io.others.GridSpacingItemDecoration
 import kotlinx.android.synthetic.main.fragment_products.*
@@ -38,9 +36,9 @@ class ProductsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ProductsAdapter(arrayOf("Louis Vuitton", "Gucci", "Fendi", "Versace", "Balenciaga", "Saint Laurent", "Chanel", "Hermes")) {
-            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-            startActivity(Intent(context, SellerActivity::class.java))
+        val adapter = ProductsAdapter(arrayOf("Outerwear", "Hats", "Kits", "Versace", "Balenciaga", "Saint Laurent", "Chanel", "Hermes")) {
+//            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+            startActivity(Intent(context, ProductActivity::class.java))
         }
         val layoutManager = GridLayoutManager(context, 2)
         val decoration = GridSpacingItemDecoration(

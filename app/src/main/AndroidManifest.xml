@@ -9,14 +9,23 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activities.SellerActivity"
+        <activity android:name=".activities.CheckOutActivity">
+        </activity>
+        <activity
+                android:name=".activities.SellerActivity"
                 android:theme="@style/AppTheme.FitsSystem">
         </activity>
-        <activity android:name=".activities.SignUpActivity">
+        <activity
+                android:name=".activities.SignUpActivity"
+                android:theme="@style/AppTheme.FitsSystem">
         </activity>
-        <activity android:name=".activities.SignInActivity">
+        <activity
+                android:name=".activities.SignInActivity"
+                android:theme="@style/AppTheme.FitsSystem">
         </activity>
-        <activity android:name=".activities.ProductActivity">
+        <activity
+                android:name=".activities.ProductActivity"
+                android:theme="@style/AppTheme.FitsSystem">
         </activity>
         <activity android:name=".activities.MainActivity">
             <intent-filter>

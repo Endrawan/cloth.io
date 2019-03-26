@@ -70,4 +70,30 @@
         <item name="android:fontFamily">@font/open_sans_semi_bold</item>
     </style>
 
+    <style name="AppTheme.EditText.Input.Fill" parent="AppTheme.EditText">
+        <item name="android:background">@drawable/input_fill</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/open_sans_semi_bold</item>
+    </style>
+
+    <style name="AppTheme.TextView" parent="AppTheme">
+
+    </style>
+
+    <style name="AppTheme.TextView.H1" parent="AppTheme.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/open_sans_semi_bold</item>
+    </style>
+
+    <style name="AppTheme.TextView.InputLabel" parent="AppTheme.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
 </resources>

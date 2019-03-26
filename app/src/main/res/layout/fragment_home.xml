@@ -80,10 +80,15 @@
                     app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
                     android:id="@+id/cardView">
 
-                <android.support.v4.view.ViewPager
-                        android:id="@+id/viewPager"
+                <!--<android.support.v4.view.ViewPager-->
+                        <!--android:id="@+id/viewPager"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"/>-->
+                <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="match_parent"
+                        android:src="@drawable/banner"
+                        android:scaleType="centerCrop"/>
 
             </android.support.v7.widget.CardView>
 
@@ -116,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/cardView"
-                    app:previewTitle="Hot Deals"
+                    app:previewTitle="Konveksi Terpopuler"
                     app:previewActionName="More"/>
 
             <com.example.cloth_io.views.PreviewView
@@ -124,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/hotPreview"
-                    app:previewTitle="Recent Product"
+                    app:previewTitle="Konveksi Baru"
                     app:previewActionName="More"/>
         </android.support.constraint.ConstraintLayout>
 

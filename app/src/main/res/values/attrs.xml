@@ -14,4 +14,12 @@
         <attr name="shipmentDesc" format="string"/>
         <attr name="shipmentIcon" format="reference"/>
     </declare-styleable>
+    <declare-styleable name="StepView">
+        <attr name="stepName" format="string" />
+        <attr name="stepState" format="enum">
+            <enum name="unselected" value="0"/>
+            <enum name="selected" value="1"/>
+            <enum name="done" value="2"/>
+        </attr>
+    </declare-styleable>
 </resources>

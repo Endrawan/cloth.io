@@ -36,7 +36,7 @@ class SellerReviewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ReviewAdapter(arrayOf("Gucci", "Louis Vuitton", "Balenciaga"))
+        val adapter = ReviewAdapter(arrayOf("Ezechiel N'douassel", "Hariono", "Jonathan Bauman"), true)
         val layoutManager = LinearLayoutManager(context)
         val spacing = GridSpacingItemDecoration(1,
             GridSpacingItemDecoration.dpToPx(16, context!!),

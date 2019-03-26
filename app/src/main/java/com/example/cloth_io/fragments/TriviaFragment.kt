@@ -7,7 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import com.example.cloth_io.R
+import com.example.cloth_io.R.drawable.trivia
+import com.example.cloth_io.R.layout.fragment_trivia
 import com.example.cloth_io.adapters.TriviasAdapter
 import com.example.cloth_io.others.GridSpacingItemDecoration
 import components.AppCompatActivity
@@ -30,7 +31,7 @@ class TriviaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trivia, container, false)
+        return inflater.inflate(fragment_trivia, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +41,8 @@ class TriviaFragment : Fragment() {
         mActivity.setSupportActionBar(toolbar)
         mActivity.supportActionBar?.title = "Trivia"
 
-        val adapter = TriviasAdapter(arrayOf("Lil Pump", "6ix9ine", "21 Savage", "Migos", "J Cole", "Kendrick Lamar", "XXXTENTACION", "Lil Peep"))
+        val adapter = TriviasAdapter(arrayOf("Lil Pump", "6ix9ine", "21 Savage", "Migos", "J Cole", "Kendrick Lamar"),
+            arrayOf(trivia, trivia, trivia, trivia, trivia, trivia))
         val spacing = GridSpacingItemDecoration(1, GridSpacingItemDecoration.dpToPx(8, mActivity), true)
         val linearLayoutManager = LinearLayoutManager(mActivity)
 

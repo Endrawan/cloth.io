@@ -15,12 +15,10 @@
             android:orientation="vertical">
 
         <TextView
+                style="@style/AppTheme.TextView.H1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Deskripsi Toko"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/open_sans_semi_bold"
                 android:layout_marginBottom="16dp"/>
 
         <TextView
@@ -51,9 +49,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Kebijakan Toko"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/open_sans_semi_bold"
+                    style="@style/AppTheme.TextView.H1"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/rules"
@@ -75,9 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dukungan Pengiriman"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/open_sans_semi_bold"
+                style="@style/AppTheme.TextView.H1"
                 android:layout_marginTop="16sp"
                 android:layout_marginBottom="8dp"/>
 

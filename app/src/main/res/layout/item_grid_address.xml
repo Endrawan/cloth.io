@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/root"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="8dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rumah"
+                android:textSize="20sp"
+                android:fontFamily="@font/open_sans_bold"
+                android:textColor="@color/black"/>
+
+        <TextView
+                android:id="@+id/receiver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nadi Endrawan"/>
+
+        <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:text="@string/lorem_ipsum"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="12sp"/>
+
+        <TextView
+                android:id="@+id/select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilih Alamat"
+                android:layout_gravity="end"
+                android:textColor="@color/colorAccent"
+                android:fontFamily="@font/open_sans_semi_bold"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".fragments.OrderFragment">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pemesanan"
+                android:textSize="24sp"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:textColor="@color/black"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Masukkan data pemesanan"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Organisasi"
+                style="@style/AppTheme.TextView.InputLabel"/>
+
+        <EditText
+                android:id="@+id/organization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Brawijaya Rebellion Group"
+                android:inputType="textPersonName"
+                style="@style/AppTheme.EditText.Input.Fill"
+                android:layout_marginBottom="16dp"
+                />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jumlah Pesanan"
+                style="@style/AppTheme.TextView.InputLabel"/>
+
+        <EditText
+                android:id="@+id/quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="ex. 200"
+                android:inputType="numberSigned"
+                style="@style/AppTheme.EditText.Input.Fill"
+                android:layout_marginBottom="16dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daftar Data Pesanan"
+                style="@style/AppTheme.TextView.InputLabel"/>
+
+        <Button
+                android:id="@+id/orderListUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload"
+                style="@style/AppTheme.Button.Primary"
+                android:layout_marginBottom="16dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload Desain"
+                style="@style/AppTheme.TextView.InputLabel"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/designList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"/>
+
+        <Button
+                android:id="@+id/designUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload"
+                style="@style/AppTheme.Button.Primary"
+                android:layout_marginBottom="16dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi Tambahan"
+                style="@style/AppTheme.TextView.InputLabel"/>
+
+        <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.EditText.Input.Fill"
+                android:inputType="textMultiLine"
+                android:hint="Masukkan deskripsi pesanan anda disini"
+                android:height="200dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="top"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pilih Bahan"
+                style="@style/AppTheme.TextView.InputLabel"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/materials"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:layout_marginBottom="8dp"/>
+
+        <TextView
+                android:id="@+id/materialName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kulit Ular"
+                android:textColor="@color/black"/>
+
+        <TextView
+                android:id="@+id/materialDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textSize="12sp"
+                android:text="@string/lorem_ipsum"
+                android:maxLines="2"
+                android:ellipsize="end"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tentukan Deadline Produksi"
+                style="@style/AppTheme.TextView.InputLabel"/>
+
+        <EditText
+                android:id="@+id/datePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pilih tanggal"
+                android:inputType="date"
+                android:clickable="true"
+                android:editable="false"
+                style="@style/AppTheme.EditText.Input.Fill"
+                android:layout_marginBottom="16dp"
+                android:focusable="false"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Biaya"
+                style="@style/AppTheme.TextView.InputLabel"/>
+
+        <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rp 18.000.000,-"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:layout_marginBottom="16dp"/>
+
+        <Button
+                android:id="@+id/next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selanjutnya"
+                style="@style/AppTheme.Button.Primary"/>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

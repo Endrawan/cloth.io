@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.example.cloth_io.R.drawable.product2
+import com.example.cloth_io.R.drawable.product3
 import com.example.cloth_io.R.layout.item_grid_product
 import kotlinx.android.synthetic.main.item_grid_product.view.*
 
@@ -18,7 +18,7 @@ class ProductsAdapter(private val MyDataset: Array<String>, private val action: 
         fun bindItem(data : String, ctx : Context, action:(String) -> Unit) {
             itemView.setOnClickListener { action(data) }
             itemView.name.text = data
-            Glide.with(ctx).load(product2).into(itemView.image)
+            Glide.with(ctx).load(product3).into(itemView.image)
         }
     }
 
