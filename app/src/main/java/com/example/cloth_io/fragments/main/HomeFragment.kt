@@ -1,4 +1,4 @@
-package com.example.cloth_io.fragments
+package com.example.cloth_io.fragments.main
 
 
 import android.content.Intent
@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        fragmentTag = "home"
     }
 
     override fun onCreateView(
@@ -58,7 +59,7 @@ class HomeFragment : Fragment() {
         recentPreview.setRecyclerView(adapter, GridLayoutManager(context, 2), decoration)
 
         search_bar.setOnClickListener {
-            mActivity.transaction(SearchFragment(), true, "home")
+            mActivity.transaction(SearchFragment(), fragmentTag)
         }
     }
 

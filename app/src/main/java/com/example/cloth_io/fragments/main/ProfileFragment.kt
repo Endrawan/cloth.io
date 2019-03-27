@@ -1,15 +1,15 @@
-package com.example.cloth_io.fragments
+package com.example.cloth_io.fragments.main
 
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloth_io.R
 import com.example.cloth_io.activities.SignInActivity
 import com.example.cloth_io.activities.SignUpActivity
+import components.Fragment
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -22,6 +22,11 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class ProfileFragment : Fragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        fragmentTag = "profile"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

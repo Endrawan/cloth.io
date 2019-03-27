@@ -1,4 +1,4 @@
-package com.example.cloth_io.fragments
+package com.example.cloth_io.fragments.main
 
 
 import android.app.Activity
@@ -11,6 +11,8 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import com.example.cloth_io.R
 import com.example.cloth_io.activities.MainActivity
+import com.example.cloth_io.fragments.SearchAutoCompleteFragment
+import com.example.cloth_io.fragments.SearchSuggestionsFragment
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_search.*
 
@@ -29,6 +31,7 @@ class SearchFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        fragmentTag = "search"
     }
 
     override fun onCreateView(
@@ -48,14 +51,15 @@ class SearchFragment : Fragment() {
 
         val suggestionsFragment = SearchSuggestionsFragment()
         val autoCompleteFragment = SearchAutoCompleteFragment()
-        transaction(suggestionsFragment, false, null)
+//        transaction(suggestionsFragment, false, null)
+        transaction(suggestionsFragment)
 
         search_bar.requestFocusFromTouch()
         search_bar.imeOptions = EditorInfo.IME_ACTION_SEARCH
         search_bar.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 hideKeyboard(mActivity)
-                (activity as MainActivity).transaction(SearchResultFragment(), true, "search")
+                (activity as MainActivity).transaction(SearchResultFragment(), fragmentTag)
             }
             false
         }
@@ -66,9 +70,11 @@ class SearchFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable) {
                 if(s.isEmpty()) {
-                    transaction(suggestionsFragment, false, null)
+//                    transaction(suggestionsFragment, false, null)
+                    transaction(suggestionsFragment)
                 } else {
-                    transaction(autoCompleteFragment, false, null)
+//                    transaction(autoCompleteFragment, false, null)
+                    transaction(autoCompleteFragment)
                 }
             }
 
@@ -89,12 +95,12 @@ class SearchFragment : Fragment() {
         }
     }
 
-    fun transaction(fragment: Fragment, addToBackStack: Boolean, tag:String?) {
+    fun transaction(fragment: android.support.v4.app.Fragment) {
         val fragmentManager = childFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.container, fragment)
-        if (addToBackStack && tag != null)
-            fragmentTransaction.addToBackStack(tag)
+//        if (addToBackStack && tag != null)
+//            fragmentTransaction.addToBackStack(tag)
         fragmentTransaction.commit()
         //container.fitsSystemWindows = true
     }

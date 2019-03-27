@@ -1,4 +1,4 @@
-package com.example.cloth_io.fragments
+package com.example.cloth_io.fragments.main
 
 
 import android.os.Bundle
@@ -6,11 +6,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.cloth_io.R
-import com.example.cloth_io.adapters.FeedsAdapter
+import com.example.cloth_io.R.drawable.trivia
+import com.example.cloth_io.R.layout.fragment_trivia
+import com.example.cloth_io.adapters.TriviasAdapter
 import com.example.cloth_io.others.GridSpacingItemDecoration
 import components.Fragment
-import kotlinx.android.synthetic.main.fragment_feed.*
+import kotlinx.android.synthetic.main.fragment_trivia.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,11 +22,11 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  *
  */
-class FeedFragment : Fragment() {
+class TriviaFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
+        fragmentTag = "trivia"
     }
 
     override fun onCreateView(
@@ -33,23 +34,24 @@ class FeedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed, container, false)
+        return inflater.inflate(fragment_trivia, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         mActivity.setSupportActionBar(toolbar)
-        mActivity.supportActionBar?.title = "Feed"
+        mActivity.supportActionBar?.title = "Trivia"
 
-        val adapter = FeedsAdapter(arrayOf("Air Jordan 1 Spiderman", "NMD Human Race", "Travis Scott Air Jordan 1 Jack Cactus", "Drake OVO Air Jordan"))
+        val adapter = TriviasAdapter(arrayOf("Lil Pump", "6ix9ine", "21 Savage", "Migos", "J Cole", "Kendrick Lamar"),
+            arrayOf(trivia, trivia, trivia, trivia, trivia, trivia))
+        val spacing = GridSpacingItemDecoration(1, GridSpacingItemDecoration.dpToPx(8, mActivity), true)
         val linearLayoutManager = LinearLayoutManager(mActivity)
-        val spacing = GridSpacingItemDecoration(1, GridSpacingItemDecoration.dpToPx(12, mActivity), true)
 
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.addItemDecoration(spacing)
         recyclerView.adapter = adapter
-
     }
+
 
 }

@@ -1,4 +1,4 @@
-package com.example.cloth_io.fragments
+package com.example.cloth_io.fragments.main
 
 
 import android.content.Intent
@@ -26,6 +26,7 @@ class SearchResultFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        fragmentTag = "result"
     }
 
     override fun onCreateView(
@@ -55,7 +56,7 @@ class SearchResultFragment : Fragment() {
         recyclerView.adapter = adapter
 
         toolbar.setOnClickListener {
-            mActivity.transaction(SearchFragment(), true, "search_result")
+            mActivity.transaction(SearchFragment(), fragmentTag)
         }
     }
 

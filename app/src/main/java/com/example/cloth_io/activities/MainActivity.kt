@@ -4,16 +4,17 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import com.example.cloth_io.R
-import com.example.cloth_io.fragments.FeedFragment
-import com.example.cloth_io.fragments.HomeFragment
-import com.example.cloth_io.fragments.ProfileFragment
-import com.example.cloth_io.fragments.TriviaFragment
+import com.example.cloth_io.fragments.main.FeedFragment
+import com.example.cloth_io.fragments.main.HomeFragment
+import com.example.cloth_io.fragments.main.ProfileFragment
+import com.example.cloth_io.fragments.main.TriviaFragment
 import components.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var mBottomNav:BottomNavigationView
+    var activeTag:String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,19 +24,19 @@ class MainActivity : AppCompatActivity() {
         mBottomNav.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
-                    transaction(HomeFragment(), false, null)
+                    transaction(HomeFragment(), activeTag)
                     true
                 }
                 R.id.feed -> {
-                    transaction(FeedFragment(), false, null)
+                    transaction(FeedFragment(), activeTag)
                     true
                 }
                 R.id.trivia -> {
-                    transaction(TriviaFragment(), false, null)
+                    transaction(TriviaFragment(), activeTag)
                     true
                 }
                 R.id.profile -> {
-                    transaction(ProfileFragment(), false, null)
+                    transaction(ProfileFragment(), activeTag)
                     true
                 }
                 else -> false
@@ -45,13 +46,21 @@ class MainActivity : AppCompatActivity() {
         mBottomNav.selectedItemId = R.id.home
     }
 
-    fun transaction(fragment: Fragment, addToBackStack: Boolean, tag:String?) {
+//    fun transaction(fragment: Fragment, addToBackStack: Boolean, tag:String?) {
+//        val fragmentManager = supportFragmentManager
+//        val fragmentTransaction = fragmentManager.beginTransaction()
+//        fragmentTransaction.replace(R.id.container, fragment)
+//        if (addToBackStack && tag != null)
+//            fragmentTransaction.addToBackStack(tag)
+//        fragmentTransaction.commit()
+//        //container.fitsSystemWindows = true
+//    }
+
+    fun transaction(fragment: Fragment, tag:String?) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.container, fragment)
-        if (addToBackStack && tag != null)
-            fragmentTransaction.addToBackStack(tag)
+        if(tag != null) fragmentTransaction.addToBackStack(tag)
         fragmentTransaction.commit()
-        //container.fitsSystemWindows = true
     }
 }
