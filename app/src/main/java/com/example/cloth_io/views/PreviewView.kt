@@ -5,13 +5,15 @@ import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.TextView
 import com.example.cloth_io.R.layout.view_preview
 import com.example.cloth_io.R.styleable.*
 import kotlinx.android.synthetic.main.view_preview.view.*
 
 class PreviewView(context: Context, attrs: AttributeSet?) : ConstraintLayout(context, attrs) {
 
-    private lateinit var recyclerView: RecyclerView
+    var mRecyclerView: RecyclerView
+    var mTitle: TextView
 
     constructor(context: Context) : this(context, null)
 
@@ -22,15 +24,22 @@ class PreviewView(context: Context, attrs: AttributeSet?) : ConstraintLayout(con
         )
         val actionName = a.getString(PreviewView_previewActionName)
         val title = a.getString(PreviewView_previewTitle)
+        val actionVisibility = a.getInt(PreviewView_previewActionVisibility, 0)
 
         a.recycle()
 
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(view_preview, this, true)
 
-        view.name.text = title
+        mTitle = view.name
+        mRecyclerView = view.recyclerView
+        mTitle.text = title
         view.previewAction.text = actionName
-        recyclerView = view.recyclerView
+
+        when (actionVisibility) {
+            1 -> {previewAction.visibility = android.view.View.INVISIBLE}
+            else ->{previewAction.visibility = android.view.View.VISIBLE}
+        }
     }
 
     fun setRecyclerView(
@@ -38,9 +47,9 @@ class PreviewView(context: Context, attrs: AttributeSet?) : ConstraintLayout(con
         layoutManager: RecyclerView.LayoutManager,
         decoration: RecyclerView.ItemDecoration?
     ) {
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = layoutManager
+        mRecyclerView.adapter = adapter
+        mRecyclerView.layoutManager = layoutManager
         if (decoration != null)
-            recyclerView.addItemDecoration(decoration)
+            mRecyclerView.addItemDecoration(decoration)
     }
 }

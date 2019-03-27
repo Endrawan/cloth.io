@@ -5,21 +5,22 @@
               android:layout_height="wrap_content"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
-              tools:context=".fragments.SearchProductFragment">
-
-
-    <com.example.cloth_io.views.PreviewView
-            android:id="@+id/promotedPreview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:previewTitle="Promoted Products"
-            app:previewActionName="More"/>
+              tools:context=".fragments.SearchSuggestionsFragment">
 
     <com.example.cloth_io.views.PreviewView
             android:id="@+id/recentPreview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:previewTitle="Terakhir Dilihat"
-            app:previewActionName="More"/>
+            app:previewActionName="More"
+            app:previewActionVisibility="gone"/>
+
+    <com.example.cloth_io.views.PreviewView
+            android:id="@+id/popularPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:previewTitle="Pencarian Terpopuler"
+            app:previewActionName="More"
+            app:previewActionVisibility="gone"/>
 
 </LinearLayout>

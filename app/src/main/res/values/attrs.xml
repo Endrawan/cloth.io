@@ -8,6 +8,10 @@
     <declare-styleable name="PreviewView">
         <attr name="previewTitle" format="string" localization="suggested" />
         <attr name="previewActionName" format="string"/>
+        <attr name="previewActionVisibility" format="enum">
+            <enum name="gone" value="1"/>
+            <enum name="visible" value="0"/>
+        </attr>
     </declare-styleable>
     <declare-styleable name="ShipmentView">
         <attr name="shipmentName" format="string" />
