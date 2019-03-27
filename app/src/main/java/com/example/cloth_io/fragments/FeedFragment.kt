@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import com.example.cloth_io.R
 import com.example.cloth_io.adapters.FeedsAdapter
 import com.example.cloth_io.others.GridSpacingItemDecoration
-import components.AppCompatActivity
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_feed.*
 
@@ -40,7 +39,6 @@ class FeedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mActivity = activity as AppCompatActivity
         mActivity.setSupportActionBar(toolbar)
         mActivity.supportActionBar?.title = "Feed"
 

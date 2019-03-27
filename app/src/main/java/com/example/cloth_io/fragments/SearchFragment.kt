@@ -10,7 +10,7 @@ import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import com.example.cloth_io.R
-import components.AppCompatActivity
+import com.example.cloth_io.activities.MainActivity
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_search.*
 
@@ -42,24 +42,25 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mActivity = activity as AppCompatActivity
         mActivity.setSupportActionBar(toolbar)
         mActivity.supportActionBar?.setDisplayShowHomeEnabled(true)
         mActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        mActivity.supportActionBar?.title = "Los Intocables"
-//        mActivity.supportActionBar?.elevation = 0f
 
         val suggestionsFragment = SearchSuggestionsFragment()
         val autoCompleteFragment = SearchAutoCompleteFragment()
         transaction(suggestionsFragment, false, null)
 
-//        search_bar.requestFocusFromTouch()
-//        val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-//        imm!!.showSoftInput(search_bar, InputMethodManager.SHOW_IMPLICIT)
         search_bar.requestFocusFromTouch()
-        search_bar.imeOptions = EditorInfo.IME_ACTION_DONE
+        search_bar.imeOptions = EditorInfo.IME_ACTION_SEARCH
+        search_bar.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                hideKeyboard(mActivity)
+                (activity as MainActivity).transaction(SearchResultFragment(), true, "search")
+            }
+            false
+        }
+
         showKeyboard(mActivity)
-//        search_bar.requestFocus()
 
         search_bar.addTextChangedListener(object : TextWatcher {
 
@@ -110,7 +111,7 @@ class SearchFragment : Fragment() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-
+        mActivity.mBottomNav.visibility = View.VISIBLE
     }
 
     fun showKeyboard(context: Context) {
@@ -118,6 +119,12 @@ class SearchFragment : Fragment() {
             InputMethodManager.SHOW_FORCED,
             InputMethodManager.HIDE_IMPLICIT_ONLY
         )
+        mActivity.mBottomNav.visibility = View.GONE
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mActivity.mBottomNav.visibility = View.VISIBLE
     }
 
 }

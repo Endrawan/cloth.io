@@ -1,6 +1,7 @@
 package com.example.cloth_io.activities
 
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import com.example.cloth_io.R
 import com.example.cloth_io.fragments.FeedFragment
@@ -12,11 +13,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var mBottomNav:BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        bottom_nav.setOnNavigationItemSelectedListener {
+        mBottomNav = bottom_nav
+        mBottomNav.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
                     transaction(HomeFragment(), false, null)
@@ -38,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        bottom_nav.selectedItemId = R.id.home
+        mBottomNav.selectedItemId = R.id.home
     }
 
     fun transaction(fragment: Fragment, addToBackStack: Boolean, tag:String?) {

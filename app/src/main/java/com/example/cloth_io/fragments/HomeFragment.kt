@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.*
 import com.example.cloth_io.R
-import com.example.cloth_io.activities.MainActivity
 import com.example.cloth_io.activities.SellerActivity
 import com.example.cloth_io.adapters.SellersAdapter
 import com.example.cloth_io.others.GridSpacingItemDecoration
-import components.AppCompatActivity
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -41,7 +39,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mActivity = activity as AppCompatActivity
         mActivity.setSupportActionBar(toolbar)
         mActivity.supportActionBar?.title = "Los Intocables"
         mActivity.supportActionBar?.elevation = 0f
@@ -61,8 +58,7 @@ class HomeFragment : Fragment() {
         recentPreview.setRecyclerView(adapter, GridLayoutManager(context, 2), decoration)
 
         search_bar.setOnClickListener {
-            val activity = activity as MainActivity
-            activity.transaction(SearchFragment(), true, "home")
+            mActivity.transaction(SearchFragment(), true, "home")
         }
     }
 

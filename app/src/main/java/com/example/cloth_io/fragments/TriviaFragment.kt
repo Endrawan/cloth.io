@@ -6,12 +6,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.example.cloth_io.R.drawable.trivia
 import com.example.cloth_io.R.layout.fragment_trivia
 import com.example.cloth_io.adapters.TriviasAdapter
 import com.example.cloth_io.others.GridSpacingItemDecoration
-import components.AppCompatActivity
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_trivia.*
 
@@ -37,7 +35,6 @@ class TriviaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mActivity = activity as AppCompatActivity
         mActivity.setSupportActionBar(toolbar)
         mActivity.supportActionBar?.title = "Trivia"
 
