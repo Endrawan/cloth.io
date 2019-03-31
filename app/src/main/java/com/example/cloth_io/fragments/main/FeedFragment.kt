@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.cloth_io.R
 import com.example.cloth_io.adapters.FeedsAdapter
+import com.example.cloth_io.others.Dummy
 import com.example.cloth_io.others.GridSpacingItemDecoration
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_feed.*
@@ -43,7 +44,7 @@ class FeedFragment : Fragment() {
         mActivity.setSupportActionBar(toolbar)
         mActivity.supportActionBar?.title = "Feed"
 
-        val adapter = FeedsAdapter(arrayOf("Air Jordan 1 Spiderman", "NMD Human Race", "Travis Scott Air Jordan 1 Jack Cactus", "Drake OVO Air Jordan"))
+        val adapter = FeedsAdapter(Dummy.products)
         val linearLayoutManager = LinearLayoutManager(mActivity)
         val spacing = GridSpacingItemDecoration(1, GridSpacingItemDecoration.dpToPx(12, mActivity), true)
 

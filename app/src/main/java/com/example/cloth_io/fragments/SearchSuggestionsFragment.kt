@@ -44,7 +44,7 @@ class SearchSuggestionsFragment : Fragment() {
         recentPreview.mRecyclerView.setPadding(padding, padding, 0, 0)
 
         popularPreview.mTitle.textSize = 16f
-        popularPreview.setRecyclerView(SuggestionsAdapter(arrayOf("Los Intocables", "Los Illuminati", "Jokowi Raja Klaim", "Btp si munafik")),
+        popularPreview.setRecyclerView(SuggestionsAdapter(arrayOf("Pewdiepie Merch", "Fake Rolex", "Kaos Partai", "Sendal Swallow")),
             LinearLayoutManager(activity), null)
         popularPreview.mRecyclerView.setPadding(Extension.dpToPx(8, activity!!), 0, Extension.dpToPx(8, activity!!), 0)
     }

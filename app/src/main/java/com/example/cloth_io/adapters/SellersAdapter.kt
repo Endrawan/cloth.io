@@ -6,19 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.example.cloth_io.R.drawable.seller
 import com.example.cloth_io.R.layout.item_grid_seller
+import com.example.cloth_io.models.Konveksi
 import kotlinx.android.synthetic.main.item_grid_product.view.*
 
-class SellersAdapter(private val MyDataset: Array<String>, private val action: (String) -> Unit) : RecyclerView.Adapter<SellersAdapter.SellerViewHolder>() {
+class SellersAdapter(private val konveksiList: MutableList<Konveksi>, private val action: (Konveksi) -> Unit) : RecyclerView.Adapter<SellersAdapter.SellerViewHolder>() {
 
     private lateinit var ctx: Context
 
     class SellerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindItem(data : String, ctx : Context, action:(String) -> Unit) {
-            itemView.setOnClickListener { action(data) }
-            itemView.name.text = data
-            Glide.with(ctx).load(seller).into(itemView.image)
+        fun bindItem(konveksi: Konveksi, ctx : Context, action:(Konveksi) -> Unit) {
+            itemView.setOnClickListener { action(konveksi) }
+            itemView.name.text = konveksi.nama_konveksi
+            itemView.rating.text = konveksi.rating_konveksi?.toFloat().toString()
+            Glide.with(ctx).load(konveksi.img).into(itemView.image)
         }
     }
 
@@ -33,9 +34,9 @@ class SellersAdapter(private val MyDataset: Array<String>, private val action: (
             ))
     }
 
-    override fun getItemCount(): Int = MyDataset.size
+    override fun getItemCount(): Int = konveksiList.size
 
     override fun onBindViewHolder(holder: SellerViewHolder, p1: Int) {
-        holder.bindItem(MyDataset[p1], ctx, action)
+        holder.bindItem(konveksiList[p1], ctx, action)
     }
 }

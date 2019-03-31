@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import com.example.cloth_io.R
 import com.example.cloth_io.R.layout.activity_check_out
 import com.example.cloth_io.fragments.OrderFragment
+import com.example.cloth_io.fragments.PaymentFragment
 import com.example.cloth_io.fragments.ShipmentFragment
 import com.example.cloth_io.views.StepView
 import components.AppCompatActivity
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_check_out.*
 class CheckOutActivity : AppCompatActivity() {
 
     private val mSteps:MutableList<StepView> = mutableListOf()
-    val fragments:List<Fragment> = arrayListOf(OrderFragment(), ShipmentFragment(), ShipmentFragment())
+    val fragments:List<Fragment> = arrayListOf(OrderFragment(), ShipmentFragment(), PaymentFragment())
     var step:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {

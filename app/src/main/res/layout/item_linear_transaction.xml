@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="170dp"
+        android:layout_margin="8dp">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@color/black"
+                app:layout_constraintDimensionRatio="8:10"
+                android:scaleType="centerCrop"/>
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@id/image"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="8dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Harverd Dropout"
+                    android:textColor="@color/black"/>
+
+            <TextView
+                    android:id="@+id/price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 10.000.000,-"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/open_sans_semi_bold"
+                    android:textSize="16sp"/>
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                <TextView
+                        android:id="@+id/sellerLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Penjual"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="12sp"/>
+
+                <TextView
+                        android:id="@+id/quantityLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kuantitas"
+                        app:layout_constraintTop_toBottomOf="@id/sellerLabel"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                        android:id="@+id/shipmentLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pengiriman"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toBottomOf="@id/quantityLabel"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                <android.support.constraint.Barrier
+                        android:id="@+id/barrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:barrierDirection="right"
+                        app:constraint_referenced_ids="sellerLabel,shipmentLabel,quantityLabel"/>
+
+                <View
+                        android:id="@+id/space"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintStart_toEndOf="@id/barrier"/>
+
+                <TextView
+                        android:id="@+id/seller"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Dolce and Gabbana"
+                        app:layout_constraintStart_toEndOf="@id/space"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/sellerLabel"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:ellipsize="end"
+                        android:maxLines="1"/>
+
+                <TextView
+                        android:id="@+id/quantity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="50 Buah"
+                        app:layout_constraintStart_toEndOf="@id/space"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/quantityLabel"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:ellipsize="end"
+                        android:maxLines="1"/>
+
+                <TextView
+                        android:id="@+id/shipment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="American Express"
+                        app:layout_constraintStart_toEndOf="@id/space"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/shipmentLabel"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:ellipsize="end"
+                        android:maxLines="1"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <Button
+                        android:id="@+id/action"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|end"
+                        android:text="Bayar"
+                        style="@style/AppTheme.Button.Primary"
+                        android:textSize="12sp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

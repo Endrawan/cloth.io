@@ -2,32 +2,44 @@ package com.example.cloth_io.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.ViewGroup
-import com.example.cloth_io.R
+import com.bumptech.glide.Glide
 import com.example.cloth_io.R.drawable.ic_left_arrow_white_24dp
 import com.example.cloth_io.R.layout.activity_product
 import com.example.cloth_io.adapters.ReviewAdapter
 import com.example.cloth_io.adapters.SliderAdapter
+import com.example.cloth_io.models.Konveksi
+import com.example.cloth_io.models.Product
 import com.example.cloth_io.others.GridSpacingItemDecoration
+import components.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_product.*
 
 
 class ProductActivity : AppCompatActivity() {
 
-    private val ads_data:MutableList<Int> = arrayListOf(
-        R.drawable.product,
-        R.drawable.product2,
-        R.drawable.product3,
-        R.drawable.product2
-    )
+    private lateinit var product:Product
+    private lateinit var konveksi: Konveksi
+
+    private val images:MutableList<Int> = arrayListOf()
     private var currentPage = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_product)
+
+        val productJSON = intent.getStringExtra("product")
+        val konveksiJSON = intent.getStringExtra("konveksi")
+        product = gson.fromJson<Product>(productJSON, Product::class.java)
+        konveksi = gson.fromJson<Konveksi>(konveksiJSON, Konveksi::class.java)
+        images.add(product.img!!)
+        price.text = "Rp ${product.price},-"
+        name.text = product.name
+        description.text = product.description
+        sellerName.text = konveksi.nama_konveksi
+        sellerLocation.text = konveksi.alamat_konveksi
+        Glide.with(this).load(konveksi.img).into(sellerImg)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -73,7 +85,7 @@ class ProductActivity : AppCompatActivity() {
     }
 
     private fun initSlider() {
-        productImg.adapter = SliderAdapter(this, ads_data)
+        productImg.adapter = SliderAdapter(this, images)
         imgIndicator.setupWithViewPager(productImg)
     }
 }

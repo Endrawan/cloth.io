@@ -6,19 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.example.cloth_io.R.drawable.product3
 import com.example.cloth_io.R.layout.item_grid_product
+import com.example.cloth_io.models.Product
 import kotlinx.android.synthetic.main.item_grid_product.view.*
 
-class ProductsAdapter(private val MyDataset: Array<String>, private val action: (String) -> Unit) : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
+class ProductsAdapter(private val products: MutableList<Product>, private val action: (Product) -> Unit) : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
 
     private lateinit var ctx: Context
 
     class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindItem(data : String, ctx : Context, action:(String) -> Unit) {
-            itemView.setOnClickListener { action(data) }
-            itemView.name.text = data
-            Glide.with(ctx).load(product3).into(itemView.image)
+        fun bindItem(product : Product, ctx : Context, action:(Product) -> Unit) {
+            itemView.setOnClickListener { action(product) }
+            itemView.name.text = product.name
+            itemView.price.text = "Rp ${product.price},-"
+            Glide.with(ctx).load(product.img).into(itemView.image)
         }
     }
 
@@ -33,9 +34,9 @@ class ProductsAdapter(private val MyDataset: Array<String>, private val action: 
             ))
     }
 
-    override fun getItemCount(): Int = MyDataset.size
+    override fun getItemCount(): Int = products.size
 
     override fun onBindViewHolder(holder: ProductViewHolder, p1: Int) {
-        holder.bindItem(MyDataset[p1], ctx, action)
+        holder.bindItem(products[p1], ctx, action)
     }
 }

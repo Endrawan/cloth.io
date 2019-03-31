@@ -1,14 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".fragments.PaymentFragment">
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            xmlns:tools="http://schemas.android.com/tools"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            tools:context=".fragments.ShipmentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-</FrameLayout>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pembayaran"
+                android:textSize="24sp"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:textColor="@color/black"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bayar dengan transfer"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"/>
+
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total yang mesti dibayar"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rp 18.000.000,-"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans_semi_bold"
+                android:layout_marginBottom="16dp"/>
+
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Transfer ke Bank Cloth.io"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"/>
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+            <TextView
+                    android:id="@+id/bni"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BNI"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="16sp"/>
+
+            <TextView
+                    android:id="@+id/bri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BRI"
+                    app:layout_constraintTop_toBottomOf="@id/bni"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="16sp"/>
+
+            <TextView
+                    android:id="@+id/mandiri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Mandiri"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/bri"
+                    android:textSize="16sp"/>
+
+            <android.support.constraint.Barrier
+                    android:id="@+id/barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="right"
+                    app:constraint_referenced_ids="bni,bri,mandiri"/>
+
+            <View
+                    android:id="@+id/space"
+                    android:layout_width="8dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toEndOf="@id/barrier"/>
+
+            <TextView
+                    android:id="@+id/bniAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dolce and Gabbana"
+                    app:layout_constraintStart_toEndOf="@id/space"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/bni"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+            <TextView
+                    android:id="@+id/briAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50 Buah"
+                    app:layout_constraintStart_toEndOf="@id/space"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/bri"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+            <TextView
+                    android:id="@+id/mandiriAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="American Express"
+                    app:layout_constraintStart_toEndOf="@id/space"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/mandiri"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lakukan transfer ke salah satu nomor rekening diatas atas nama Cloth.io sesuai dengan nominal yang tertera"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"/>
+
+        <Button
+                android:id="@+id/next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selesai"
+                style="@style/AppTheme.Button.Primary"/>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -7,16 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.cloth_io.R.layout.item_linear_trivia
+import com.example.cloth_io.models.Trivia
 import kotlinx.android.synthetic.main.item_linear_trivia.view.*
 
-class TriviasAdapter(private val MyDataset: Array<String>, private val MyImg: Array<Int>) : RecyclerView.Adapter<TriviasAdapter.TriviaViewHolder>() {
+class TriviasAdapter(private val trivias: MutableList<Trivia>) : RecyclerView.Adapter<TriviasAdapter.TriviaViewHolder>() {
 
     private lateinit var ctx:Context
 
     class TriviaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindItem(data : String, img: Int, ctx:Context) {
-            itemView.title.text = data
-            Glide.with(ctx).load(img).into(itemView.image)
+        fun bindItem(trivia : Trivia, ctx:Context) {
+            itemView.title.text = trivia.name
+            itemView.subtitle.text= trivia.content
+            Glide.with(ctx).load(trivia.img).into(itemView.image)
         }
     }
 
@@ -30,9 +32,9 @@ class TriviasAdapter(private val MyDataset: Array<String>, private val MyImg: Ar
             ))
     }
 
-    override fun getItemCount(): Int = MyDataset.size
+    override fun getItemCount(): Int = trivias.size
 
     override fun onBindViewHolder(holder: TriviaViewHolder, p1: Int) {
-        holder.bindItem(MyDataset[p1], MyImg[p1], ctx)
+        holder.bindItem(trivias[p1], ctx)
     }
 }

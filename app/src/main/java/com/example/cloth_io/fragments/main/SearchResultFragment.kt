@@ -8,6 +8,7 @@ import android.view.*
 import com.example.cloth_io.R
 import com.example.cloth_io.activities.ProductActivity
 import com.example.cloth_io.adapters.ProductsAdapter
+import com.example.cloth_io.others.Dummy
 import com.example.cloth_io.others.GridSpacingItemDecoration
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_search_result.*
@@ -42,7 +43,7 @@ class SearchResultFragment : Fragment() {
 
         mActivity.setSupportActionBar(toolbar)
 
-        val adapter = ProductsAdapter(arrayOf("Outerwear", "Hats", "Kits", "Versace", "Balenciaga", "Saint Laurent", "Chanel", "Hermes")) {
+        val adapter = ProductsAdapter(Dummy.products) {
             startActivity(Intent(context, ProductActivity::class.java))
         }
         val layoutManager = GridLayoutManager(context, 2)

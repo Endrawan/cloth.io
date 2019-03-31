@@ -6,9 +6,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.cloth_io.R.drawable.trivia
 import com.example.cloth_io.R.layout.fragment_trivia
 import com.example.cloth_io.adapters.TriviasAdapter
+import com.example.cloth_io.others.Dummy
 import com.example.cloth_io.others.GridSpacingItemDecoration
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_trivia.*
@@ -43,8 +43,7 @@ class TriviaFragment : Fragment() {
         mActivity.setSupportActionBar(toolbar)
         mActivity.supportActionBar?.title = "Trivia"
 
-        val adapter = TriviasAdapter(arrayOf("Lil Pump", "6ix9ine", "21 Savage", "Migos", "J Cole", "Kendrick Lamar"),
-            arrayOf(trivia, trivia, trivia, trivia, trivia, trivia))
+        val adapter = TriviasAdapter(Dummy.trivias)
         val spacing = GridSpacingItemDecoration(1, GridSpacingItemDecoration.dpToPx(8, mActivity), true)
         val linearLayoutManager = LinearLayoutManager(mActivity)
 

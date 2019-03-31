@@ -7,19 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.cloth_io.R.drawable.avatar2
-import com.example.cloth_io.R.drawable.feed
 import com.example.cloth_io.R.layout.item_linear_feed
+import com.example.cloth_io.models.Product
 import kotlinx.android.synthetic.main.item_linear_feed.view.*
 
-class FeedsAdapter(private val MyDataset: Array<String>) : RecyclerView.Adapter<FeedsAdapter.FeedViewHolder>() {
+class FeedsAdapter(private val feeds: MutableList<Product>) : RecyclerView.Adapter<FeedsAdapter.FeedViewHolder>() {
 
     private lateinit var ctx : Context
 
     class FeedViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindItem(data : String, ctx: Context) {
-            itemView.feedTitle.text = data
+        fun bindItem(product : Product, ctx: Context) {
+            itemView.feedTitle.text = product.name
+            itemView.feedDesc.text = product.description
             Glide.with(ctx).load(avatar2).into(itemView.profileImage)
-            Glide.with(ctx).load(feed).into(itemView.feedImage)
+            Glide.with(ctx).load(product.img).into(itemView.feedImage)
         }
     }
 
@@ -34,9 +35,9 @@ class FeedsAdapter(private val MyDataset: Array<String>) : RecyclerView.Adapter<
             ))
     }
 
-    override fun getItemCount(): Int = MyDataset.size
+    override fun getItemCount(): Int = feeds.size
 
     override fun onBindViewHolder(holder: FeedViewHolder, p1: Int) {
-        holder.bindItem(MyDataset[p1], ctx)
+        holder.bindItem(feeds[p1], ctx)
     }
 }

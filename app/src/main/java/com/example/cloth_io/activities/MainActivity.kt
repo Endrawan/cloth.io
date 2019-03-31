@@ -44,17 +44,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         mBottomNav.selectedItemId = R.id.home
+        //toast(user.toString())
     }
-
-//    fun transaction(fragment: Fragment, addToBackStack: Boolean, tag:String?) {
-//        val fragmentManager = supportFragmentManager
-//        val fragmentTransaction = fragmentManager.beginTransaction()
-//        fragmentTransaction.replace(R.id.container, fragment)
-//        if (addToBackStack && tag != null)
-//            fragmentTransaction.addToBackStack(tag)
-//        fragmentTransaction.commit()
-//        //container.fitsSystemWindows = true
-//    }
 
     fun transaction(fragment: Fragment, tag:String?) {
         val fragmentManager = supportFragmentManager

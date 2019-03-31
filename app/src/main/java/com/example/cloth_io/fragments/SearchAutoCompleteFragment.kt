@@ -34,7 +34,7 @@ class SearchAutoCompleteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView.adapter = AutoCompleteAdapter(arrayOf("Gucci Gang", "Bank Account", "A Lot", "Middle Child", "FEFE"))
+        recyclerView.adapter = AutoCompleteAdapter(arrayOf("This is autocomplete 1", "This is autocomplete 2", "This is autocomplete 3", "This is autocomplete 4", "This is autocomplete 5"))
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.addItemDecoration(GridSpacingItemDecoration(1, GridSpacingItemDecoration.dpToPx(16, activity!!), true))
     }
