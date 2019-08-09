@@ -59,7 +59,7 @@ class SearchFragment : Fragment() {
         search_bar.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 hideKeyboard(mActivity)
-                (activity as MainActivity).transaction(SearchResultFragment(), fragmentTag)
+                (activity as MainActivity).transaction(SearchResultFragment.newInstance(search_bar.text.toString()), fragmentTag)
             }
             false
         }

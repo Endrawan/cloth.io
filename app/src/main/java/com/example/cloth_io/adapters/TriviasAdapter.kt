@@ -10,15 +10,16 @@ import com.example.cloth_io.R.layout.item_linear_trivia
 import com.example.cloth_io.models.Trivia
 import kotlinx.android.synthetic.main.item_linear_trivia.view.*
 
-class TriviasAdapter(private val trivias: MutableList<Trivia>) : RecyclerView.Adapter<TriviasAdapter.TriviaViewHolder>() {
+class TriviasAdapter(private val trivias: MutableList<Trivia>, private val action: (Trivia) -> Unit) : RecyclerView.Adapter<TriviasAdapter.TriviaViewHolder>() {
 
     private lateinit var ctx:Context
 
     class TriviaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindItem(trivia : Trivia, ctx:Context) {
+        fun bindItem(trivia : Trivia, ctx:Context, action: (Trivia) -> Unit) {
             itemView.title.text = trivia.name
             itemView.subtitle.text= trivia.content
             Glide.with(ctx).load(trivia.img).into(itemView.image)
+            itemView.setOnClickListener { action(trivia) }
         }
     }
 
@@ -35,6 +36,6 @@ class TriviasAdapter(private val trivias: MutableList<Trivia>) : RecyclerView.Ad
     override fun getItemCount(): Int = trivias.size
 
     override fun onBindViewHolder(holder: TriviaViewHolder, p1: Int) {
-        holder.bindItem(trivias[p1], ctx)
+        holder.bindItem(trivias[p1], ctx, action)
     }
 }

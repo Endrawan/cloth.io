@@ -1,15 +1,18 @@
 package com.example.cloth_io.fragments.main
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloth_io.R
+import com.example.cloth_io.activities.FeedActivity
 import com.example.cloth_io.adapters.FeedsAdapter
 import com.example.cloth_io.others.Dummy
 import com.example.cloth_io.others.GridSpacingItemDecoration
+import com.google.gson.Gson
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_feed.*
 
@@ -23,6 +26,8 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class FeedFragment : Fragment() {
+
+    val gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +49,11 @@ class FeedFragment : Fragment() {
         mActivity.setSupportActionBar(toolbar)
         mActivity.supportActionBar?.title = "Feed"
 
-        val adapter = FeedsAdapter(Dummy.products)
+        val adapter = FeedsAdapter(Dummy.products) {
+            val intent = Intent(context, FeedActivity::class.java)
+            intent.putExtra("product", gson.toJson(it))
+            startActivity(intent)
+        }
         val linearLayoutManager = LinearLayoutManager(mActivity)
         val spacing = GridSpacingItemDecoration(1, GridSpacingItemDecoration.dpToPx(12, mActivity), true)
 

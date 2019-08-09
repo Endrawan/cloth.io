@@ -1,15 +1,18 @@
 package com.example.cloth_io.fragments.main
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cloth_io.R.layout.fragment_trivia
+import com.example.cloth_io.activities.TriviaActivity
 import com.example.cloth_io.adapters.TriviasAdapter
 import com.example.cloth_io.others.Dummy
 import com.example.cloth_io.others.GridSpacingItemDecoration
+import com.google.gson.Gson
 import components.Fragment
 import kotlinx.android.synthetic.main.fragment_trivia.*
 
@@ -23,6 +26,8 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class TriviaFragment : Fragment() {
+
+    val gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +48,11 @@ class TriviaFragment : Fragment() {
         mActivity.setSupportActionBar(toolbar)
         mActivity.supportActionBar?.title = "Trivia"
 
-        val adapter = TriviasAdapter(Dummy.trivias)
+        val adapter = TriviasAdapter(Dummy.trivias) {
+            val intent = Intent(context, TriviaActivity::class.java)
+            intent.putExtra("trivia", gson.toJson(it))
+            startActivity(intent)
+        }
         val spacing = GridSpacingItemDecoration(1, GridSpacingItemDecoration.dpToPx(8, mActivity), true)
         val linearLayoutManager = LinearLayoutManager(mActivity)
 

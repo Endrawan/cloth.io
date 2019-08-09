@@ -29,7 +29,7 @@
                     android:drawablePadding="8dp"
                     android:padding="8dp"
                     android:gravity="center_vertical"
-                    android:text="Cari di Cloth.io"/>
+                    android:text="Masukkan keyword"/>
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>

@@ -24,10 +24,23 @@ private const val ARG_PARAM2 = "param2"
  */
 class SearchResultFragment : Fragment() {
 
+    private var keyword:String? = null
+
+    companion object {
+        fun newInstance(keyword: String): SearchResultFragment {
+            val fragment = SearchResultFragment()
+            val args = Bundle()
+            args.putString("keyword", keyword)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
         fragmentTag = "result"
+        keyword = arguments?.getString("keyword")
     }
 
     override fun onCreateView(
@@ -59,6 +72,8 @@ class SearchResultFragment : Fragment() {
         toolbar.setOnClickListener {
             mActivity.transaction(SearchFragment(), fragmentTag)
         }
+
+        search_bar.text = keyword
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {

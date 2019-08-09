@@ -2,17 +2,26 @@ package com.example.cloth_io.others
 
 import com.example.cloth_io.R
 import com.example.cloth_io.models.Konveksi
+import com.example.cloth_io.models.Mitra
 import com.example.cloth_io.models.Product
 import com.example.cloth_io.models.Trivia
 
 class Dummy {
     companion object {
+        val mitraList:MutableList<Mitra> = mutableListOf(
+            Mitra("3-001", "Awesam", "0857654321", "Jl. SoeHat no.1A , Tidar, Malang", "4.3", "777654321", R.drawable.mitra1),
+            Mitra("3-002", "Oyi Sam", "0857654321", "Jl. Kerto no.1B , Dinoyo, Malang", "4.6", "777654321", R.drawable.mitra2),
+            Mitra("3-003", "Quicksilver Official", "0857654321", "Jl. SoeHat no.2A , Klojen, Malang", "4.1", "777654321", R.drawable.mitra3),
+            Mitra("3-004", "Eiger Official", "0857654321", "Jl. Candi Borobudur no.13 , Lowokwaru, Malang", "4.8", "777654321", R.drawable.mitra4),
+            Mitra("3-005", "Inspired27", "0857654321", "Jl. Jakarta no.15A , Sukun, Malang", "4.5", "777654321", R.drawable.mitra5)
+        )
+
         val products:MutableList<Product> = mutableListOf(
-            Product("Eiger - Exped Parka", 599000, "Exped Parka 1.0 adalah jaket parka yang dirancang secara spesifik untuk melindungi Anda dari paparan angin saat melakukan aktivitas harian di luar ruangan", R.drawable.product1),
-            Product("INSPRD - Camouflag Panels", 400000, "Flece | higdencity | Woven Label\n" +
+            Product("INSPRD - Camouflag Panels", 599000, "Exped Parka 1.0 adalah jaket parka yang dirancang secara spesifik untuk melindungi Anda dari paparan angin saat melakukan aktivitas harian di luar ruangan", R.drawable.product5, mitraList[4]),
+            Product("Quicksilver - Noosa Paradise Shirt", 400000, "Flece | higdencity | Woven Label\n" +
                     "\n" +
                     "\u0096 Jacket ini menggunakan kain Fleece sehingga sangat nyaman dipakai dengan tekstur kainnya yang lembut.\n" +
-                    "\u0096 Lebih cepat kering dan hangat ketika dipakai.", R.drawable.product2),
+                    "\u0096 Lebih cepat kering dan hangat ketika dipakai.", R.drawable.product2, mitraList[2]),
             Product("OYISAM - OyisamTshirt", 68000, "KAOS RAIN DROP PENDEK\n" +
                     "\n" +
                     "Bahan : Cotton Printing\n" +
@@ -20,21 +29,50 @@ class Dummy {
                     "\n" +
                     "(Cek gambar. Karena beberapa faktor, akurasi warna hanya sekitar 80-90%)\n" +
                     "\n" +
-                    "Model : Unisex (bisa untuk cowok maupun untuk cewek )", R.drawable.product3),
-            Product("Quicksilver - Noosa Paradise Shirt", 599000, "- Kemeja bernuansa summer dengan motif bunga \n" +
+                    "Model : Unisex (bisa untuk cowok maupun untuk cewek )", R.drawable.product3, mitraList[1]),
+            Product("Eiger - Exped Parka", 599000, "- Kemeja bernuansa summer dengan motif bunga \n" +
                     "- Warna navy \n" +
                     "- Detail kerah \n" +
                     "- Unlined \n" +
                     "- Regular fit \n" +
                     "- Material katun tidak transparan, ringan, dan tidak strech \n" +
-                    "- Tinggi model 186cm, mengenakan ukuran L ", R.drawable.product4),
+                    "- Tinggi model 186cm, mengenakan ukuran L ", R.drawable.product4, mitraList[3]),
             Product("Awesam - Kaos strip dominan hitam tosca", 65000, "KAOS POLOS STRIP DOMINAN :\n" +
                     "\n" +
                     "Warna : Hitam Tosca\n" +
                     "(Cek gambar. Karena beberapa faktor, akurasi warna hanya sekitar 80-90%)\n" +
                     "Model : Unisex (bisa untuk cowok maupun untuk cewek )\n" +
-                    "Ukuran : S Sampai XL (P x L). Toleransi 2 cm..", R.drawable.product5)
+                    "Ukuran : S Sampai XL (P x L). Toleransi 2 cm..", R.drawable.product1, mitraList[0])
             )
+
+        val productsSeller:MutableList<Product> = mutableListOf(
+            Product("Jaket", 599000, "Exped Parka 1.0 adalah jaket parka yang dirancang secara spesifik untuk melindungi Anda dari paparan angin saat melakukan aktivitas harian di luar ruangan", R.drawable.product5, mitraList[4]),
+            Product("Kameja", 400000, "Flece | higdencity | Woven Label\n" +
+                    "\n" +
+                    "\u0096 Jacket ini menggunakan kain Fleece sehingga sangat nyaman dipakai dengan tekstur kainnya yang lembut.\n" +
+                    "\u0096 Lebih cepat kering dan hangat ketika dipakai.", R.drawable.product2, mitraList[2]),
+            Product("Kaos", 68000, "KAOS RAIN DROP PENDEK\n" +
+                    "\n" +
+                    "Bahan : Cotton Printing\n" +
+                    "Warna : Putih\n" +
+                    "\n" +
+                    "(Cek gambar. Karena beberapa faktor, akurasi warna hanya sekitar 80-90%)\n" +
+                    "\n" +
+                    "Model : Unisex (bisa untuk cowok maupun untuk cewek )", R.drawable.product3, mitraList[1]),
+            Product("Parka", 599000, "- Kemeja bernuansa summer dengan motif bunga \n" +
+                    "- Warna navy \n" +
+                    "- Detail kerah \n" +
+                    "- Unlined \n" +
+                    "- Regular fit \n" +
+                    "- Material katun tidak transparan, ringan, dan tidak strech \n" +
+                    "- Tinggi model 186cm, mengenakan ukuran L ", R.drawable.product4, mitraList[3]),
+            Product("Sweater", 65000, "KAOS POLOS STRIP DOMINAN :\n" +
+                    "\n" +
+                    "Warna : Hitam Tosca\n" +
+                    "(Cek gambar. Karena beberapa faktor, akurasi warna hanya sekitar 80-90%)\n" +
+                    "Model : Unisex (bisa untuk cowok maupun untuk cewek )\n" +
+                    "Ukuran : S Sampai XL (P x L). Toleransi 2 cm..", R.drawable.product1, mitraList[0])
+        )
 
         val trivias:MutableList<Trivia> = mutableListOf(
             Trivia("3 TIPS UNTUK MERAWAT KAOS POLOS BERWARNA PUTIH", "Awesam", "Apakah kawan awesam penggemar kaos polos warna putih? Memakai kaos putih memang akan membuat penampilan kita lebih cerah dan aman dipakai dalam momen apa pun. Tidak salah, jika kaos polos warna putih menjadi kaos polos yang wajib dimiliki. Jadikan kaos polos warna putih sebagai fashion item wajib yang harus kita miliki.\n" +
@@ -65,5 +103,7 @@ class Dummy {
             )
 
         val bannerList:MutableList<Int> = mutableListOf(R.drawable.banner, R.drawable.banner2, R.drawable.banner3, R.drawable.banner4)
+
+
     }
 }

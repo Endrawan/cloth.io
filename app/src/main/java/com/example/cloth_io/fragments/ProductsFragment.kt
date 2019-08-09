@@ -43,7 +43,7 @@ class ProductsFragment : Fragment() {
 
         val mActivity = activity as SellerActivity
 
-        val adapter = ProductsAdapter(Dummy.products) {
+        val adapter = ProductsAdapter(Dummy.productsSeller) {
             val intent = Intent(context, ProductActivity::class.java)
             intent.putExtra("product", gson.toJson(it))
             intent.putExtra("konveksi", gson.toJson(mActivity.konveksi))
