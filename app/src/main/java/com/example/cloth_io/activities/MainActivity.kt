@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mBottomNav:BottomNavigationView
     var activeTag:String? = null
-
+e
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
